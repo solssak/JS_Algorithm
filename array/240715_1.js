@@ -28,13 +28,13 @@ function solution(dirs) {
       continue;
     }
 
+    // 방문한 길은 양방향으로 체크함
+    // 단방향으로 저장하면 두 경로가 같은 경로인지 확인할 방법이 없음
     visited.add(`${x}${y}${nx}${ny}`);
     visited.add(`${nx}${ny}${x}${y}`);
+
     [x, y] = [nx, ny];
-    console.log(visited);
   }
 
   return visited.size / 2;
 }
-
-solution("ULURRDLLU");

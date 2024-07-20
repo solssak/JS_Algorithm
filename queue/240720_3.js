@@ -34,10 +34,10 @@ function solution(cards1, cards2, goal) {
   goal = new Queue(goal);
 
   while (!goal.isEmpty()) {
-    if (!cards1.isEmpty() && !cards1.first() === goal.first()) {
+    if (!cards1.isEmpty() && cards1.first() === goal.first()) {
       cards1.pop();
       goal.pop();
-    } else if (!cards1.isEmpty() && !cards1.first() === goal.first()) {
+    } else if (!cards2.isEmpty() && cards2.first() === goal.first()) {
       cards2.pop();
       goal.pop();
     } else {

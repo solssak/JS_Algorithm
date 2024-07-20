@@ -1,5 +1,3 @@
-// 요세푸스 문제
-
 class Queue {
   items = [];
   front = 0;
@@ -31,8 +29,10 @@ function solution(N, K) {
       queue.push(queue.pop());
     }
     queue.pop();
+    console.log(queue);
   }
 
   return queue.pop();
 }
-console.log(solution(5, 3));
+
+console.log(solution(5, 2));
