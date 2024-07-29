@@ -13,16 +13,23 @@ function solution(genres, plays) {
     }
 
     genresObj[genre].push([i, play]);
-    playObj[genre] = 0;
+    playObj[genre] += play;
   }
 
-  sortedGenres = Object.keys(genresObj).sort((a, b) => playObj[b] - playObj[a]);
+  sortedSongs = Object.keys(playObj).sort((a, b) => playObj[b] - playObj[a]);
 
-  for (const genre of sortedGenres) {
-    sortedSongs = genresObj[genre].sort((a, b) => {
+  for (const genre of sortedSongs) {
+    sortedGernes = genresObj[genre].sort((a, b) => {
       return a[1] === b[1] ? a[0] - b[0] : b[1] - a[1];
     });
 
-    answer.push(...sortedSongs.slice(0, 2).map((song) => song[0]));
+    answer.push(...sortedGernes.slice(0, 2).map((song) => song[0]));
   }
+
+  return answer;
 }
+
+const genres = ["classic", "pop", "classic", "classic", "pop"];
+const plays = [500, 600, 150, 800, 2500];
+
+console.log(solution(genres, plays)); // [4, 1, 3, 0]
